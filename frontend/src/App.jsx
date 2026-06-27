@@ -195,7 +195,18 @@ function App() {
       </header>
 
       <main className="product-section">
-        <h2>Products</h2>
+        <section className="shop-hero">
+          <div>
+            <p>Weekend deals</p>
+            <h2>Shop everyday essentials in one place</h2>
+          </div>
+          <span>{filteredProducts.length} products available</span>
+        </section>
+
+        <div className="section-heading">
+          <h2>Products</h2>
+          <p>Search, view details, and add items to your cart.</p>
+        </div>
 
         <div className="product-grid">
           {filteredProducts.map((product) => (

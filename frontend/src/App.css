@@ -14,18 +14,24 @@ body {
 }
 
 .navbar {
-  height: 64px;
-  background: #131921;
+  background: #101820;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.18);
   color: white;
   display: flex;
   align-items: center;
   gap: 24px;
+  min-height: 72px;
   padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .navbar h1 {
+  color: #fca311;
   font-size: 24px;
   margin: 0;
+  white-space: nowrap;
 }
 
 .navbar input {
@@ -60,11 +66,59 @@ body {
 }
 
 .product-section {
+  margin: 0 auto;
+  max-width: 1180px;
   padding: 32px;
 }
 
 .product-section h2 {
   margin-top: 0;
+}
+
+.shop-hero {
+  align-items: center;
+  background: #243b53;
+  border-radius: 8px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding: 28px;
+}
+
+.shop-hero p {
+  color: #fca311;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+.shop-hero h2 {
+  font-size: 30px;
+  margin: 0;
+}
+
+.shop-hero span {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  font-weight: bold;
+  padding: 10px 14px;
+  white-space: nowrap;
+}
+
+.section-heading {
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.section-heading h2,
+.section-heading p {
+  margin: 0;
+}
+
+.section-heading p {
+  color: #52616b;
 }
 
 .auth-page {
@@ -221,8 +275,9 @@ body {
   top: 16px;
 }
 .cart-section {
-  margin-top: 32px;
   background: white;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  margin-top: 32px;
   padding: 20px;
   border-radius: 8px;
 }
@@ -284,4 +339,36 @@ body {
   color: #1f6f35;
   margin: 0;
   padding: 12px;
+}
+
+@media (max-width: 760px) {
+  .navbar {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+    padding: 18px;
+  }
+
+  .navbar input {
+    width: 100%;
+  }
+
+  .product-section {
+    padding: 20px;
+  }
+
+  .shop-hero,
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .shop-hero h2 {
+    font-size: 24px;
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
 }
