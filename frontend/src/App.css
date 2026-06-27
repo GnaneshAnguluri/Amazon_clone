@@ -34,6 +34,23 @@ body {
   white-space: nowrap;
 }
 
+.nav-links {
+  display: flex;
+  gap: 8px;
+}
+
+.nav-links button {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+}
+
+.nav-links button.active {
+  background: #fca311;
+  border-color: #fca311;
+  color: #101820;
+}
+
 .navbar input {
   flex: 1;
   padding: 12px;
@@ -283,8 +300,10 @@ body {
 }
 
 .cart-item {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+  gap: 16px;
   border-bottom: 1px solid #ddd;
   padding: 12px 0;
 }
@@ -301,12 +320,58 @@ body {
   padding: 6px 12px;
 }
 
+.quantity-controls {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+}
+
+.quantity-controls button {
+  height: 32px;
+  padding: 0;
+  width: 32px;
+}
+
+.checkout-link {
+  background: #ffd814;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 12px;
+  padding: 12px 18px;
+}
+
+.checkout-link:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.checkout-page {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr 1.2fr;
+}
+
+.checkout-summary,
 .checkout-form {
-  border-top: 1px solid #ddd;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+  padding: 20px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #ddd;
+  padding: 12px 0;
+}
+
+.checkout-form {
   display: grid;
   gap: 12px;
-  margin-top: 24px;
-  padding-top: 20px;
 }
 
 .checkout-form input,
@@ -349,6 +414,10 @@ body {
     padding: 18px;
   }
 
+  .nav-links {
+    flex-wrap: wrap;
+  }
+
   .navbar input {
     width: 100%;
   }
@@ -370,5 +439,14 @@ body {
 
   .product-detail {
     grid-template-columns: 1fr;
+  }
+
+  .checkout-page {
+    grid-template-columns: 1fr;
+  }
+
+  .cart-item {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
