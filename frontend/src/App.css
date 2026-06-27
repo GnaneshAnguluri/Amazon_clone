@@ -96,3 +96,42 @@ body {
 .cart-item:last-child {
   border-bottom: none;
 }
+
+.cart-item button {
+  background: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 6px 12px;
+}
+
+.checkout-form {
+  border-top: 1px solid #ddd;
+  display: grid;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 20px;
+}
+
+.checkout-form input,
+.checkout-form textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  padding: 12px;
+  width: 100%;
+}
+
+.checkout-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.checkout-form button {
+  background: #ffa41c;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 12px 18px;
+}
