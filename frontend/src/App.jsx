@@ -32,6 +32,11 @@ function App() {
   const [deliveryAddress, setDeliveryAddress] = useState('')
   const [orderMessage, setOrderMessage] = useState('')
   const [selectedProduct, setSelectedProduct] = useState(null)
+  const [authMode, setAuthMode] = useState('login')
+  const [userName, setUserName] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [userPassword, setUserPassword] = useState('')
+  const [currentUser, setCurrentUser] = useState(null)
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product])
@@ -70,6 +75,20 @@ function App() {
     setDeliveryAddress('')
   }
 
+  const handleAuthSubmit = (event) => {
+    event.preventDefault()
+
+    const displayName = authMode === 'signup' ? userName : userEmail
+    setCurrentUser(displayName)
+    setUserName('')
+    setUserEmail('')
+    setUserPassword('')
+  }
+
+  const logout = () => {
+    setCurrentUser(null)
+  }
+
   return (
     <div className="app">
       <header className="navbar">
@@ -80,10 +99,64 @@ function App() {
           value={searchText}
           onChange={(event) => setSearchText(event.target.value)}
         />
+        {currentUser ? (
+          <div className="user-summary">
+            <span>Hi, {currentUser}</span>
+            <button onClick={logout}>Logout</button>
+          </div>
+        ) : (
+          <span className="guest-label">Guest</span>
+        )}
         <button>Cart ({cartItems.length})</button>
       </header>
 
       <main className="product-section">
+        <section className="auth-section">
+          <div className="auth-tabs">
+            <button
+              className={authMode === 'login' ? 'active' : ''}
+              onClick={() => setAuthMode('login')}
+            >
+              Login
+            </button>
+            <button
+              className={authMode === 'signup' ? 'active' : ''}
+              onClick={() => setAuthMode('signup')}
+            >
+              Signup
+            </button>
+          </div>
+
+          <form className="auth-form" onSubmit={handleAuthSubmit}>
+            {authMode === 'signup' && (
+              <input
+                type="text"
+                placeholder="Full name"
+                value={userName}
+                onChange={(event) => setUserName(event.target.value)}
+                required
+              />
+            )}
+            <input
+              type="email"
+              placeholder="Email"
+              value={userEmail}
+              onChange={(event) => setUserEmail(event.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={userPassword}
+              onChange={(event) => setUserPassword(event.target.value)}
+              required
+            />
+            <button type="submit">
+              {authMode === 'login' ? 'Login' : 'Create Account'}
+            </button>
+          </form>
+        </section>
+
         <h2>Products</h2>
 
         <div className="product-grid">

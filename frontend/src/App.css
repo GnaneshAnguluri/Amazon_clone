@@ -46,12 +46,74 @@ body {
   font-weight: bold;
 }
 
+.guest-label,
+.user-summary {
+  align-items: center;
+  display: flex;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.user-summary button {
+  padding: 8px 12px;
+}
+
 .product-section {
   padding: 32px;
 }
 
 .product-section h2 {
   margin-top: 0;
+}
+
+.auth-section {
+  background: white;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  padding: 20px;
+}
+
+.auth-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.auth-tabs button {
+  background: #f3f3f3;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 10px 18px;
+}
+
+.auth-tabs button.active {
+  background: #131921;
+  border-color: #131921;
+  color: white;
+}
+
+.auth-form {
+  display: grid;
+  gap: 12px;
+  max-width: 420px;
+}
+
+.auth-form input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font: inherit;
+  padding: 12px;
+}
+
+.auth-form button {
+  background: #ffd814;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 12px 18px;
 }
 
 .product-grid {
