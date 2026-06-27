@@ -89,29 +89,15 @@ function App() {
     setCurrentUser(null)
   }
 
-  return (
-    <div className="app">
-      <header className="navbar">
-        <h1>Amazon Clone</h1>
-        <input
-          type="text"
-          placeholder="Search products"
-          value={searchText}
-          onChange={(event) => setSearchText(event.target.value)}
-        />
-        {currentUser ? (
-          <div className="user-summary">
-            <span>Hi, {currentUser}</span>
-            <button onClick={logout}>Logout</button>
+  if (!currentUser) {
+    return (
+      <div className="auth-page">
+        <section className="auth-panel">
+          <div className="auth-brand">
+            <h1>Amazon Clone</h1>
+            <p>Sign in to shop products, manage your cart, and checkout.</p>
           </div>
-        ) : (
-          <span className="guest-label">Guest</span>
-        )}
-        <button>Cart ({cartItems.length})</button>
-      </header>
 
-      <main className="product-section">
-        <section className="auth-section">
           <div className="auth-tabs">
             <button
               className={authMode === 'login' ? 'active' : ''}
@@ -156,7 +142,32 @@ function App() {
             </button>
           </form>
         </section>
+      </div>
+    )
+  }
 
+  return (
+    <div className="app">
+      <header className="navbar">
+        <h1>Amazon Clone</h1>
+        <input
+          type="text"
+          placeholder="Search products"
+          value={searchText}
+          onChange={(event) => setSearchText(event.target.value)}
+        />
+        {currentUser ? (
+          <div className="user-summary">
+            <span>Hi, {currentUser}</span>
+            <button onClick={logout}>Logout</button>
+          </div>
+        ) : (
+          <span className="guest-label">Guest</span>
+        )}
+        <button>Cart ({cartItems.length})</button>
+      </header>
+
+      <main className="product-section">
         <h2>Products</h2>
 
         <div className="product-grid">

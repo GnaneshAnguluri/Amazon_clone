@@ -5,7 +5,8 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #eaeded;
+  background: #eef1f5;
+  color: #1f2933;
 }
 
 .app {
@@ -64,6 +65,35 @@ body {
 
 .product-section h2 {
   margin-top: 0;
+}
+
+.auth-page {
+  align-items: center;
+  background: linear-gradient(135deg, #14213d 0%, #243b53 48%, #fca311 100%);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.auth-panel {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(15, 23, 42, 0.28);
+  max-width: 460px;
+  padding: 32px;
+  width: 100%;
+}
+
+.auth-brand h1 {
+  color: #131921;
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.auth-brand p {
+  color: #52616b;
+  margin: 0 0 24px;
 }
 
 .auth-section {
