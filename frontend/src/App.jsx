@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+const addToCart = (product) => {
+  setCartItems([...cartItems, product])
+}
 const products = [
   {
     id: 1,
@@ -22,12 +25,16 @@ const products = [
 ]
 
 function App() {
+  const [cartItems, setCartItems] = useState([])
+  const addToCart = (product) => {
+  setCartItems([...cartItems, product])
+}
   return (
     <div className="app">
       <header className="navbar">
         <h1>Amazon Clone</h1>
         <input type="text" placeholder="Search products" />
-        <button>Cart</button>
+        <button>Cart ({cartItems.length})</button>
       </header>
 
       <main className="product-section">
@@ -39,7 +46,7 @@ function App() {
               <img src={product.image} alt={product.title} />
               <h3>{product.title}</h3>
               <p>₹{product.price}</p>
-              <button>Add to Cart</button>
+              <button onClick={() => addToCart(product)}>Add to Cart</button>
             </div>
           ))}
         </div>
