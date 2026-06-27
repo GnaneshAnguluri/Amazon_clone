@@ -23,7 +23,7 @@ const products = [
 
  function App() {
   const [cartItems, setCartItems] = useState([])
-
+  const [searchText, setSearchText] = useState('')
   const addToCart = (product) => {
     setCartItems([...cartItems, product])
   }
@@ -39,12 +39,19 @@ const products = [
   const cartTotal = cartItems.reduce((total, item) => {
     return total + item.price
   }, 0)
-
+  const filteredProducts = products.filter((product) => {
+  return product.title.toLowerCase().includes(searchText.toLowerCase())
+})
   return (
     <div className="app">
       <header className="navbar">
         <h1>Amazon Clone</h1>
-        <input type="text" placeholder="Search products" />
+        <input
+  type="text"
+  placeholder="Search products"
+  value={searchText}
+  onChange={(event) => setSearchText(event.target.value)}
+/>
         <button>Cart ({cartItems.length})</button>
       </header>
 
@@ -52,7 +59,7 @@ const products = [
         <h2>Products</h2>
 
         <div className="product-grid">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div className="product-card" key={product.id}>
               <img src={product.image} alt={product.title} />
               <h3>{product.title}</h3>
