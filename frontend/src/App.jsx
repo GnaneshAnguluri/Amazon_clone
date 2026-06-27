@@ -28,6 +28,9 @@ const products = [
 function App() {
   const [cartItems, setCartItems] = useState([])
   const [searchText, setSearchText] = useState('')
+  const [customerName, setCustomerName] = useState('')
+  const [deliveryAddress, setDeliveryAddress] = useState('')
+  const [orderMessage, setOrderMessage] = useState('')
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product])
@@ -48,6 +51,23 @@ function App() {
   const filteredProducts = products.filter((product) => {
     return product.title.toLowerCase().includes(searchText.toLowerCase())
   })
+
+  const placeOrder = () => {
+    if (cartItems.length === 0) {
+      setOrderMessage('Add at least one product before placing an order.')
+      return
+    }
+
+    if (!customerName || !deliveryAddress) {
+      setOrderMessage('Please enter your name and delivery address.')
+      return
+    }
+
+    setOrderMessage(`Order placed successfully for ${customerName}.`)
+    setCartItems([])
+    setCustomerName('')
+    setDeliveryAddress('')
+  }
 
   return (
     <div className="app">
@@ -95,9 +115,19 @@ function App() {
 
           <div className="checkout-form">
             <h2>Checkout</h2>
-            <input type="text" placeholder="Full name" />
-            <textarea placeholder="Delivery address"></textarea>
-            <button>Place Order</button>
+            <input
+              type="text"
+              placeholder="Full name"
+              value={customerName}
+              onChange={(event) => setCustomerName(event.target.value)}
+            />
+            <textarea
+              placeholder="Delivery address"
+              value={deliveryAddress}
+              onChange={(event) => setDeliveryAddress(event.target.value)}
+            ></textarea>
+            <button onClick={placeOrder}>Place Order</button>
+            {orderMessage && <p className="order-message">{orderMessage}</p>}
           </div>
         </section>
       </main>
