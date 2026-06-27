@@ -313,9 +313,10 @@ body {
 }
 
 .cart-item button {
-  background: #f3f3f3;
-  border: 1px solid #ccc;
+  background: #101820;
+  border: 1px solid #101820;
   border-radius: 4px;
+  color: white;
   cursor: pointer;
   padding: 6px 12px;
 }
@@ -333,9 +334,10 @@ body {
 }
 
 .checkout-link {
-  background: #ffd814;
+  background: #101820;
   border: none;
   border-radius: 4px;
+  color: white;
   cursor: pointer;
   font-weight: bold;
   margin-top: 12px;
