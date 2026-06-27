@@ -6,22 +6,49 @@ const products = [
     id: 1,
     title: 'Wireless Headphones',
     price: 2499,
-    image: 'https://via.placeholder.com/220',
+    image:
+      'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80',
     description: 'Comfortable wireless headphones with long battery life.',
   },
   {
     id: 2,
     title: 'Smart Watch',
     price: 3999,
-    image: 'https://via.placeholder.com/220',
+    image:
+      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80',
     description: 'A daily smart watch for fitness, calls, and notifications.',
   },
   {
     id: 3,
     title: 'Bluetooth Speaker',
     price: 1799,
-    image: 'https://via.placeholder.com/220',
+    image:
+      'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=500&q=80',
     description: 'Portable speaker with clear sound for home and travel.',
+  },
+  {
+    id: 4,
+    title: 'Laptop Backpack',
+    price: 1299,
+    image:
+      'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=500&q=80',
+    description: 'Lightweight backpack with laptop storage and daily pockets.',
+  },
+  {
+    id: 5,
+    title: 'Desk Lamp',
+    price: 899,
+    image:
+      'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=500&q=80',
+    description: 'Minimal desk lamp for study, work, and late-night reading.',
+  },
+  {
+    id: 6,
+    title: 'Running Shoes',
+    price: 2999,
+    image:
+      'https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80',
+    description: 'Everyday running shoes with cushioned support.',
   },
 ]
 
