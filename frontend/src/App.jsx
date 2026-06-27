@@ -31,6 +31,7 @@ function App() {
   const [customerName, setCustomerName] = useState('')
   const [deliveryAddress, setDeliveryAddress] = useState('')
   const [orderMessage, setOrderMessage] = useState('')
+  const [selectedProduct, setSelectedProduct] = useState(null)
 
   const addToCart = (product) => {
     setCartItems([...cartItems, product])
@@ -88,13 +89,43 @@ function App() {
         <div className="product-grid">
           {filteredProducts.map((product) => (
             <div className="product-card" key={product.id}>
-              <img src={product.image} alt={product.title} />
+              <img
+                src={product.image}
+                alt={product.title}
+                onClick={() => setSelectedProduct(product)}
+              />
               <h3>{product.title}</h3>
               <p>Rs {product.price}</p>
+              <button
+                className="details-button"
+                onClick={() => setSelectedProduct(product)}
+              >
+                View Details
+              </button>
               <button onClick={() => addToCart(product)}>Add to Cart</button>
             </div>
           ))}
         </div>
+
+        {selectedProduct && (
+          <section className="product-detail">
+            <button
+              className="close-detail"
+              onClick={() => setSelectedProduct(null)}
+            >
+              Close
+            </button>
+            <img src={selectedProduct.image} alt={selectedProduct.title} />
+            <div>
+              <h2>{selectedProduct.title}</h2>
+              <p>{selectedProduct.description}</p>
+              <strong>Rs {selectedProduct.price}</strong>
+              <button onClick={() => addToCart(selectedProduct)}>
+                Add to Cart
+              </button>
+            </div>
+          </section>
+        )}
 
         <section className="cart-section">
           <h2>Cart</h2>
