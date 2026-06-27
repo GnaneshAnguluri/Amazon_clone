@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-const addToCart = (product) => {
-  setCartItems([...cartItems, product])
-}
 const products = [
   {
     id: 1,
@@ -24,11 +21,25 @@ const products = [
   },
 ]
 
-function App() {
+ function App() {
   const [cartItems, setCartItems] = useState([])
+
   const addToCart = (product) => {
-  setCartItems([...cartItems, product])
-}
+    setCartItems([...cartItems, product])
+  }
+
+  const removeFromCart = (indexToRemove) => {
+    const updatedCart = cartItems.filter((item, index) => {
+      return index !== indexToRemove
+    })
+
+    setCartItems(updatedCart)
+  }
+
+  const cartTotal = cartItems.reduce((total, item) => {
+    return total + item.price
+  }, 0)
+
   return (
     <div className="app">
       <header className="navbar">
@@ -50,6 +61,22 @@ function App() {
             </div>
           ))}
         </div>
+        <section className="cart-section">
+  <h2>Cart</h2>
+  
+  {cartItems.length === 0 ? (
+    <p>Your cart is empty.</p>
+  ) : (
+  cartItems.map((item, index) => (
+  <div className="cart-item" key={index}>
+    <span>{item.title}</span>
+    <strong>₹{item.price}</strong>
+    <button onClick={() => removeFromCart(index)}>Remove</button>
+  </div>
+))
+  )}
+  <h3>Total: ₹{cartTotal}</h3>
+</section>
       </main>
     </div>
   )
