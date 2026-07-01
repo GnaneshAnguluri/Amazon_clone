@@ -1,10 +1,19 @@
 const express = require('express')
 const cors = require('cors')
-
+const mongoose = require('mongoose')
+require('dotenv').config()
 const app = express()
 const PORT = 5000
 
 app.use(cors())
+mongoose
+  .connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log('MongoDB connected')
+  })
+  .catch((error) => {
+    console.log('MongoDB connection error:', error)
+  })
 app.use(express.json())
 const products = [
   {
